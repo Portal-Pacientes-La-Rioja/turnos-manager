@@ -1,0 +1,1 @@
+LR_BASE_API = "/turnos/api/v1"
