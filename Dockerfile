@@ -12,3 +12,5 @@ COPY ./app /code/app
 COPY ./alembic /alembic
 
 COPY ./alembic.ini /alembic
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "9000"]

@@ -9,6 +9,10 @@ class TurnosBase(BaseModel):
     description: str
 
 
+class TurnosCreate(TurnosBase):
+    pass
+
+
 class Turno(TurnosBase):
     id: int
 

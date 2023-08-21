@@ -60,7 +60,7 @@ async def get_turnos_by_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @router_app.post("/turnos/", response_model=schemas.Turno)
-async def create_turno(turno: schemas.Turno, db: Session = Depends(get_db)):
+async def create_turno(turno: schemas.TurnosCreate, db: Session = Depends(get_db)):
     return crud.create_turno(db, turno)
 
 
