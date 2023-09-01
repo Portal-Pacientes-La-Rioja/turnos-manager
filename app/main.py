@@ -59,6 +59,12 @@ async def get_turnos_by_user(user_id: int, db: Session = Depends(get_db)):
     return crud.get_turnos_by_user(db, user_id)
 
 
+@router_app.get("/turnos/metrics", response_model=Dict)
+async def get_turnos_by_user(db: Session = Depends(get_db)):
+    number_turnos = crud.get_number_of_turnos(db)
+    return {"total": number_turnos}
+
+
 @router_app.post("/turnos/", response_model=schemas.Turno)
 async def create_turno(turno: schemas.TurnosCreate, db: Session = Depends(get_db)):
     return crud.create_turno(db, turno)
