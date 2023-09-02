@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import APIRouter
 from sqlalchemy.orm import Session
 
-from typing import List
+from typing import List, Dict
 
 from app.database.database import engine, SessionLocal, Base
 from app.models.turnos import Turnos
@@ -60,7 +60,7 @@ async def get_turnos_by_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @router_app.get("/turnos/metrics", response_model=Dict)
-async def get_turnos_by_user(db: Session = Depends(get_db)):
+async def get_turnos_metrics(db: Session = Depends(get_db)):
     number_turnos = crud.get_number_of_turnos(db)
     return {"total": number_turnos}
 
